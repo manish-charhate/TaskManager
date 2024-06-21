@@ -11,12 +11,19 @@
 		CC04A5D02C25B04600DCAE2A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC04A5CF2C25B04600DCAE2A /* ContentView.swift */; };
 		CC04A5D22C25B04800DCAE2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC04A5D12C25B04800DCAE2A /* Assets.xcassets */; };
 		CC04A5D52C25B04800DCAE2A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC04A5D42C25B04800DCAE2A /* Preview Assets.xcassets */; };
-		CC04A5DF2C25B04800DCAE2A /* TaskManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC04A5DE2C25B04800DCAE2A /* TaskManagerTests.swift */; };
 		CC04A5E92C25B04800DCAE2A /* TaskManagerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC04A5E82C25B04800DCAE2A /* TaskManagerUITests.swift */; };
 		CC04A5EB2C25B04800DCAE2A /* TaskManagerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC04A5EA2C25B04800DCAE2A /* TaskManagerUITestsLaunchTests.swift */; };
 		CC04A5F92C25B12C00DCAE2A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CC04A5F82C25B12C00DCAE2A /* FirebaseAuth */; };
 		CC04A5FB2C25B17900DCAE2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC04A5FA2C25B17900DCAE2A /* AppDelegate.swift */; };
 		CC04A5FD2C25B1BB00DCAE2A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC04A5FC2C25B1BB00DCAE2A /* GoogleService-Info.plist */; };
+		CC04A6042C25B35500DCAE2A /* OnboardingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC04A6032C25B35400DCAE2A /* OnboardingResponse.swift */; };
+		CC04A6062C25B37100DCAE2A /* OnboardingRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC04A6052C25B37100DCAE2A /* OnboardingRepository.swift */; };
+		CC04A6082C25B39700DCAE2A /* OnboardingFirebaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC04A6072C25B39700DCAE2A /* OnboardingFirebaseRepository.swift */; };
+		CC04A60A2C25B3CD00DCAE2A /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC04A6092C25B3CD00DCAE2A /* OnboardingViewModel.swift */; };
+		CC04A60C2C25B3ED00DCAE2A /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC04A60B2C25B3ED00DCAE2A /* OnboardingView.swift */; };
+		CC04A6112C25B44000DCAE2A /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC04A6102C25B44000DCAE2A /* TaskListView.swift */; };
+		CC04A6152C25B57100DCAE2A /* OnboardingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC04A6142C25B57100DCAE2A /* OnboardingViewModelTests.swift */; };
+		CC04A6192C25B63200DCAE2A /* MockOnboardingRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC04A6182C25B63200DCAE2A /* MockOnboardingRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,12 +50,19 @@
 		CC04A5D12C25B04800DCAE2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC04A5D42C25B04800DCAE2A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CC04A5DA2C25B04800DCAE2A /* TaskManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaskManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC04A5DE2C25B04800DCAE2A /* TaskManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManagerTests.swift; sourceTree = "<group>"; };
 		CC04A5E42C25B04800DCAE2A /* TaskManagerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaskManagerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC04A5E82C25B04800DCAE2A /* TaskManagerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManagerUITests.swift; sourceTree = "<group>"; };
 		CC04A5EA2C25B04800DCAE2A /* TaskManagerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManagerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CC04A5FA2C25B17900DCAE2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC04A5FC2C25B1BB00DCAE2A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CC04A6032C25B35400DCAE2A /* OnboardingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingResponse.swift; sourceTree = "<group>"; };
+		CC04A6052C25B37100DCAE2A /* OnboardingRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRepository.swift; sourceTree = "<group>"; };
+		CC04A6072C25B39700DCAE2A /* OnboardingFirebaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFirebaseRepository.swift; sourceTree = "<group>"; };
+		CC04A6092C25B3CD00DCAE2A /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		CC04A60B2C25B3ED00DCAE2A /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		CC04A6102C25B44000DCAE2A /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
+		CC04A6142C25B57100DCAE2A /* OnboardingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModelTests.swift; sourceTree = "<group>"; };
+		CC04A6182C25B63200DCAE2A /* MockOnboardingRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockOnboardingRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +114,8 @@
 		CC04A5CC2C25B04600DCAE2A /* TaskManager */ = {
 			isa = PBXGroup;
 			children = (
+				CC04A60D2C25B41C00DCAE2A /* Tasks */,
+				CC04A5FE2C25B31B00DCAE2A /* Onboarding */,
 				CC04A5FC2C25B1BB00DCAE2A /* GoogleService-Info.plist */,
 				CC04A5CD2C25B04600DCAE2A /* TaskManagerApp.swift */,
 				CC04A5CF2C25B04600DCAE2A /* ContentView.swift */,
@@ -121,7 +137,7 @@
 		CC04A5DD2C25B04800DCAE2A /* TaskManagerTests */ = {
 			isa = PBXGroup;
 			children = (
-				CC04A5DE2C25B04800DCAE2A /* TaskManagerTests.swift */,
+				CC04A6122C25B54900DCAE2A /* Onboarding */,
 			);
 			path = TaskManagerTests;
 			sourceTree = "<group>";
@@ -133,6 +149,91 @@
 				CC04A5EA2C25B04800DCAE2A /* TaskManagerUITestsLaunchTests.swift */,
 			);
 			path = TaskManagerUITests;
+			sourceTree = "<group>";
+		};
+		CC04A5FE2C25B31B00DCAE2A /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				CC04A6022C25B33A00DCAE2A /* Repositories */,
+				CC04A6012C25B33200DCAE2A /* Views */,
+				CC04A6002C25B32B00DCAE2A /* ViewModels */,
+				CC04A5FF2C25B32700DCAE2A /* Models */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		CC04A5FF2C25B32700DCAE2A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CC04A6032C25B35400DCAE2A /* OnboardingResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CC04A6002C25B32B00DCAE2A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				CC04A6092C25B3CD00DCAE2A /* OnboardingViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		CC04A6012C25B33200DCAE2A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CC04A60B2C25B3ED00DCAE2A /* OnboardingView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CC04A6022C25B33A00DCAE2A /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				CC04A6052C25B37100DCAE2A /* OnboardingRepository.swift */,
+				CC04A6072C25B39700DCAE2A /* OnboardingFirebaseRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		CC04A60D2C25B41C00DCAE2A /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				CC04A60E2C25B42200DCAE2A /* Views */,
+			);
+			path = Tasks;
+			sourceTree = "<group>";
+		};
+		CC04A60E2C25B42200DCAE2A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CC04A6102C25B44000DCAE2A /* TaskListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CC04A6122C25B54900DCAE2A /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				CC04A6172C25B62300DCAE2A /* Mock */,
+				CC04A6132C25B55500DCAE2A /* ViewModels */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		CC04A6132C25B55500DCAE2A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				CC04A6142C25B57100DCAE2A /* OnboardingViewModelTests.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		CC04A6172C25B62300DCAE2A /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				CC04A6182C25B63200DCAE2A /* MockOnboardingRepository.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,7 +374,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC04A5FB2C25B17900DCAE2A /* AppDelegate.swift in Sources */,
+				CC04A6062C25B37100DCAE2A /* OnboardingRepository.swift in Sources */,
+				CC04A6112C25B44000DCAE2A /* TaskListView.swift in Sources */,
+				CC04A6042C25B35500DCAE2A /* OnboardingResponse.swift in Sources */,
+				CC04A6082C25B39700DCAE2A /* OnboardingFirebaseRepository.swift in Sources */,
 				CC04A5D02C25B04600DCAE2A /* ContentView.swift in Sources */,
+				CC04A60C2C25B3ED00DCAE2A /* OnboardingView.swift in Sources */,
+				CC04A60A2C25B3CD00DCAE2A /* OnboardingViewModel.swift in Sources */,
 				CC04A5CE2C25B04600DCAE2A /* TaskManagerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,7 +389,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC04A5DF2C25B04800DCAE2A /* TaskManagerTests.swift in Sources */,
+				CC04A6192C25B63200DCAE2A /* MockOnboardingRepository.swift in Sources */,
+				CC04A6152C25B57100DCAE2A /* OnboardingViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
