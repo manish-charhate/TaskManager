@@ -24,6 +24,11 @@
 		CC04A6112C25B44000DCAE2A /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC04A6102C25B44000DCAE2A /* TaskListView.swift */; };
 		CC04A6152C25B57100DCAE2A /* OnboardingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC04A6142C25B57100DCAE2A /* OnboardingViewModelTests.swift */; };
 		CC04A6192C25B63200DCAE2A /* MockOnboardingRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC04A6182C25B63200DCAE2A /* MockOnboardingRepository.swift */; };
+		CC04A61C2C25BBD800DCAE2A /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC04A61B2C25BBD800DCAE2A /* TaskModel.swift */; };
+		CC04A61E2C25BD5C00DCAE2A /* TaskCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC04A61D2C25BD5C00DCAE2A /* TaskCardView.swift */; };
+		CC04A6212C25BD9C00DCAE2A /* TaskDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC04A6202C25BD9C00DCAE2A /* TaskDetailsView.swift */; };
+		CC04A6232C25C53E00DCAE2A /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC04A6222C25C53E00DCAE2A /* StatusView.swift */; };
+		CC04A6262C25C79400DCAE2A /* TaskListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC04A6252C25C79400DCAE2A /* TaskListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +68,11 @@
 		CC04A6102C25B44000DCAE2A /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
 		CC04A6142C25B57100DCAE2A /* OnboardingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModelTests.swift; sourceTree = "<group>"; };
 		CC04A6182C25B63200DCAE2A /* MockOnboardingRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockOnboardingRepository.swift; sourceTree = "<group>"; };
+		CC04A61B2C25BBD800DCAE2A /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		CC04A61D2C25BD5C00DCAE2A /* TaskCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCardView.swift; sourceTree = "<group>"; };
+		CC04A6202C25BD9C00DCAE2A /* TaskDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsView.swift; sourceTree = "<group>"; };
+		CC04A6222C25C53E00DCAE2A /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
+		CC04A6252C25C79400DCAE2A /* TaskListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +208,8 @@
 		CC04A60D2C25B41C00DCAE2A /* Tasks */ = {
 			isa = PBXGroup;
 			children = (
+				CC04A6242C25C78300DCAE2A /* ViewModels */,
+				CC04A61A2C25BBC600DCAE2A /* Models */,
 				CC04A60E2C25B42200DCAE2A /* Views */,
 			);
 			path = Tasks;
@@ -207,6 +219,9 @@
 			isa = PBXGroup;
 			children = (
 				CC04A6102C25B44000DCAE2A /* TaskListView.swift */,
+				CC04A61D2C25BD5C00DCAE2A /* TaskCardView.swift */,
+				CC04A6202C25BD9C00DCAE2A /* TaskDetailsView.swift */,
+				CC04A6222C25C53E00DCAE2A /* StatusView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -234,6 +249,22 @@
 				CC04A6182C25B63200DCAE2A /* MockOnboardingRepository.swift */,
 			);
 			path = Mock;
+			sourceTree = "<group>";
+		};
+		CC04A61A2C25BBC600DCAE2A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CC04A61B2C25BBD800DCAE2A /* TaskModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CC04A6242C25C78300DCAE2A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				CC04A6252C25C79400DCAE2A /* TaskListViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,11 +405,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC04A5FB2C25B17900DCAE2A /* AppDelegate.swift in Sources */,
+				CC04A6232C25C53E00DCAE2A /* StatusView.swift in Sources */,
 				CC04A6062C25B37100DCAE2A /* OnboardingRepository.swift in Sources */,
+				CC04A6262C25C79400DCAE2A /* TaskListViewModel.swift in Sources */,
+				CC04A61C2C25BBD800DCAE2A /* TaskModel.swift in Sources */,
 				CC04A6112C25B44000DCAE2A /* TaskListView.swift in Sources */,
+				CC04A61E2C25BD5C00DCAE2A /* TaskCardView.swift in Sources */,
 				CC04A6042C25B35500DCAE2A /* OnboardingResponse.swift in Sources */,
 				CC04A6082C25B39700DCAE2A /* OnboardingFirebaseRepository.swift in Sources */,
 				CC04A5D02C25B04600DCAE2A /* ContentView.swift in Sources */,
+				CC04A6212C25BD9C00DCAE2A /* TaskDetailsView.swift in Sources */,
 				CC04A60C2C25B3ED00DCAE2A /* OnboardingView.swift in Sources */,
 				CC04A60A2C25B3CD00DCAE2A /* OnboardingViewModel.swift in Sources */,
 				CC04A5CE2C25B04600DCAE2A /* TaskManagerApp.swift in Sources */,

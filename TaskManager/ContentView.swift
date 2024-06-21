@@ -18,7 +18,7 @@ struct ContentView: View {
                     viewModel: OnboardingViewModel()
                 )
             } else {
-                TaskListView()
+                TaskListView(viewModel: TaskListViewModel())
             }
         }
     }
