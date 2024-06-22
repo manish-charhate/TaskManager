@@ -23,7 +23,7 @@ struct TaskDetailsView: View {
                     .lineLimit(1...10)
                     .font(.body)
                     .padding()
-                    .background(.white)
+                    .background(Color(.systemBackground))
                     .cornerRadius(10)
             } else {
                 Text(viewModel.title)
@@ -69,7 +69,7 @@ struct TaskDetailsView: View {
                     .lineLimit(1...50)
                     .font(.body)
                     .padding()
-                    .background(.white)
+                    .background(Color(.systemBackground))
                     .cornerRadius(10)
                 
             } else {
@@ -100,16 +100,27 @@ struct TaskDetailsView: View {
                     
                     Spacer()
                     
-                    VStack(alignment: .trailing, spacing: 10) {
-                        Text("Due Date:")
-                            .font(.headline)
-                            .fontWeight(.bold)
-                        
-                        if viewModel.isEditing {
-                            DatePicker("", selection: $viewModel.dueDate, displayedComponents: .date)
-                        } else {
-                            Text(viewModel.dueDate, style: .date)
+                    VStack(alignment: .trailing, spacing: 12.0) {
+                        VStack(alignment: .trailing) {
+                            Text("Created On:")
+                                .font(.headline)
+                                .fontWeight(.bold)
+                            
+                            Text(viewModel.originalTask.creationDate ?? Date(), style: .date)
                                 .font(.body)
+                        }
+                        
+                        VStack(alignment: .trailing) {
+                            Text("Due On:")
+                                .font(.headline)
+                                .fontWeight(.bold)
+                            
+                            if viewModel.isEditing {
+                                DatePicker("", selection: $viewModel.dueDate, displayedComponents: .date)
+                            } else {
+                                Text(viewModel.dueDate, style: .date)
+                                    .font(.body)
+                            }
                         }
                     }
                 }
@@ -173,7 +184,8 @@ struct TaskDetailsView: View {
                     title: "Task 1",
                     description: "description",
                     status: TaskStatus.done.rawValue,
-                    dueDate: Date()
+                    dueDate: Date(),
+                    creationDate: Date()
                 )
             ),
             navigationPath: .constant(NavigationPath())

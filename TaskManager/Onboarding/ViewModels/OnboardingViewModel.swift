@@ -45,7 +45,7 @@ final class OnboardingViewModel: ObservableObject {
         }
         
         do {
-            let response = try await repository.signUp(with: email, password: password)
+            let _ = try await repository.signUp(with: email, password: password)
             UserDefaults.standard.set(false, forKey: "showOnboarding")
         } catch {
             showError = true
@@ -67,7 +67,7 @@ final class OnboardingViewModel: ObservableObject {
         }
         
         do {
-            let response = try await repository.signIn(with: email, password: password)
+            let _ = try await repository.signIn(with: email, password: password)
             UserDefaults.standard.set(false, forKey: "showOnboarding")
         } catch {
             showError = true

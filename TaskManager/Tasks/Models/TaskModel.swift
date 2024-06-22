@@ -13,6 +13,7 @@ struct TaskModel: Identifiable, Codable, Hashable {
     let description: String?
     let status: String?
     let dueDate: Date?
+    let creationDate: Date?
     
     var statusType: TaskStatus {
         guard let status else { return .all }
@@ -25,4 +26,10 @@ enum TaskStatus: String, CaseIterable {
     case todo
     case inProgress = "in progress"
     case done
+}
+
+enum SortingCriteria: String, CaseIterable {
+    case creationDate = "creation date"
+    case title
+    case dueDate = "due date"
 }

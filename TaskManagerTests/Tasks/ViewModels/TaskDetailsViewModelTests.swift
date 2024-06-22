@@ -24,7 +24,8 @@ final class TaskDetailsViewModelTests: XCTestCase {
             title: "Test Task",
             description: "Test Description",
             status: TaskStatus.todo.rawValue,
-            dueDate: Date()
+            dueDate: Date(),
+            creationDate: Date()
         )
         viewModel = TaskDetailsViewModel(task: task, repository: repository)
     }

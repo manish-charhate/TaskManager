@@ -17,17 +17,13 @@ final class TaskListViewModel: ObservableObject {
     @Published private(set) var errorMessage = ""
     @Published private(set) var showError = false
     @Published private(set) var isLoading = false
+    @Published var showCreateForm = false
     
     @Published var selectedStatus: TaskStatus = .all
+    @Published var sortingBy: SortingCriteria = .creationDate
     
     @Published private(set) var tasks: [TaskModel] = []
-    
-    var filteredTasks: [TaskModel] {
-        tasks.filter { task in
-            (selectedStatus == .all || task.statusType == selectedStatus) &&
-            (searchText.isEmpty || (task.title ?? "").lowercased().contains(searchText.lowercased()))
-        }
-    }
+    @Published private(set) var filteredTasks: [TaskModel] = []
     
     private let repository: TasksRepository
     
@@ -35,6 +31,8 @@ final class TaskListViewModel: ObservableObject {
     
     init(repository: TasksRepository = TasksFirebaseRepository()) {
         self.repository = repository
+        
+        setupBindings()
     }
     
     // MARK: Public methods
@@ -48,23 +46,6 @@ final class TaskListViewModel: ObservableObject {
         
         do {
             tasks = try await repository.fetchTasks()
-        } catch {
-            showError = true
-            errorMessage = error.localizedDescription
-        }
-    }
-    
-    func createTask() async {
-        isLoading = true
-        
-        defer {
-            isLoading = false
-        }
-        
-        let task = TaskModel(id: UUID().uuidString, title: "Task 2", description: "Description 2", status: "done", dueDate: Date())
-        
-        do {
-            try await repository.createTask(task)
         } catch {
             showError = true
             errorMessage = error.localizedDescription
@@ -100,7 +81,8 @@ final class TaskListViewModel: ObservableObject {
                 title: task.title,
                 description: task.description,
                 status: status.rawValue,
-                dueDate: task.dueDate
+                dueDate: task.dueDate,
+                creationDate: task.creationDate
             )
             try await repository.updateTask(modifiedTask)
             
@@ -110,5 +92,30 @@ final class TaskListViewModel: ObservableObject {
             showError = true
             errorMessage = error.localizedDescription
         }
+    }
+    
+    // MARK: Private methods
+    
+    private func setupBindings() {
+        Publishers.CombineLatest4($tasks, $selectedStatus, $searchText, $sortingBy)
+            .map { tasks, selectedStatus, searchText, sortingBy in
+                tasks.filter { task in
+                    (selectedStatus == .all || task.statusType == selectedStatus) &&
+                    (searchText.isEmpty || (task.title ?? "").lowercased().contains(searchText.lowercased()))
+                }
+                .sorted { first, second in
+                    switch sortingBy {
+                        case .creationDate:
+                            return (first.creationDate ?? Date()) > (second.creationDate ?? Date())
+                            
+                        case .title:
+                            return (first.title ?? "") < (second.title ?? "")
+                            
+                        case .dueDate:
+                            return (first.dueDate ?? Date()) < (second.dueDate ?? Date())
+                    }
+                }
+            }
+            .assign(to: &$filteredTasks)
     }
 }

@@ -25,9 +25,19 @@ struct TaskCardView: View {
                     .multilineTextAlignment(.leading)
                 
                 HStack {
-                    Image(systemName: "clock")
+                    Image(systemName: "calendar")
+                        .font(.subheadline)
+                        .foregroundColor(.blue.opacity(0.5))
+                    
+                    Text(task.creationDate ?? Date(), style: .date)
                         .font(.subheadline)
                         .foregroundColor(.secondary)
+                }
+                
+                HStack {
+                    Image(systemName: "calendar.badge.clock")
+                        .font(.subheadline)
+                        .foregroundColor(.red.opacity(0.5))
                     
                     Text(task.dueDate ?? Date(), style: .date)
                         .font(.subheadline)
@@ -49,7 +59,8 @@ struct TaskCardView: View {
             title: "Task 1",
             description: "Description 1",
             status: TaskStatus.todo.rawValue,
-            dueDate: Date()
+            dueDate: Date(),
+            creationDate: Date()
         )
     )
 }

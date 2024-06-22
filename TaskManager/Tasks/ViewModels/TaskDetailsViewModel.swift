@@ -23,7 +23,7 @@ final class TaskDetailsViewModel: ObservableObject {
     @Published private(set) var editButtonTitle = "Edit"
     
     private let repository: TaskDetailsRepository
-    private let originalTask: TaskModel
+    private(set) var originalTask: TaskModel
     
     // MARK: Init
     
@@ -60,7 +60,8 @@ final class TaskDetailsViewModel: ObservableObject {
             title: title,
             description: description,
             status: taskStatus.rawValue,
-            dueDate: dueDate
+            dueDate: dueDate,
+            creationDate: originalTask.creationDate
         )
         
         isLoading = true
@@ -84,7 +85,8 @@ final class TaskDetailsViewModel: ObservableObject {
             title: originalTask.title,
             description: originalTask.description,
             status: status.rawValue,
-            dueDate: originalTask.dueDate
+            dueDate: originalTask.dueDate,
+            creationDate: originalTask.creationDate
         )
         
         isLoading = true

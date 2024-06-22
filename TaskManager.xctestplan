@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "E62819CB-6149-46F6-828B-7AF751040F0D",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:TaskManager.xcodeproj",
+      "identifier" : "CC04A5C92C25B04600DCAE2A",
+      "name" : "TaskManager"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:TaskManager.xcodeproj",
+        "identifier" : "CC04A5D92C25B04800DCAE2A",
+        "name" : "TaskManagerTests"
+      }
+    }
+  ],
+  "version" : 1
+}

@@ -16,7 +16,14 @@ final class MockTasksRepository: TasksRepository {
     var createTaskResult: Result<Void, Error>?
     
     func createTask(_ task: TaskModel) async throws {
-        
+        if let result = createTaskResult {
+            switch result {
+            case .success:
+                return
+            case .failure(let error):
+                throw error
+            }
+        }
     }
 
     func fetchTasks() async throws -> [TaskModel] {

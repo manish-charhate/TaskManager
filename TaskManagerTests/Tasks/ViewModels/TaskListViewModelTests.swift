@@ -37,7 +37,14 @@ final class TaskListViewModelTests: XCTestCase {
 
     func testFetchAllTasksSuccess() async {
         // Given
-        let expectedTasks = [TaskModel(id: "1", title: "Task 1", description: "Desc 1", status: "todo", dueDate: Date())]
+        let expectedTasks = [TaskModel(
+            id: "1",
+            title: "Task 1",
+            description: "Desc 1",
+            status: "todo",
+            dueDate: Date(),
+            creationDate: Date()
+        )]
         mockRepository.fetchTasksResult = .success(expectedTasks)
         
         // When
@@ -66,7 +73,14 @@ final class TaskListViewModelTests: XCTestCase {
     
     func testDeleteTaskSuccess() async {
         // Given
-        let task = TaskModel(id: "1", title: "Task 1", description: "Desc 1", status: "todo", dueDate: Date())
+        let task = TaskModel(
+            id: "1",
+            title: "Task 1",
+            description: "Desc 1",
+            status: "todo",
+            dueDate: Date(),
+            creationDate: Date()
+        )
         mockRepository.fetchTasksResult = .success([task])
         await viewModel.fetchAllTasks()
         
@@ -84,7 +98,14 @@ final class TaskListViewModelTests: XCTestCase {
     
     func testDeleteTaskFailure() async {
         // Given
-        let task = TaskModel(id: "1", title: "Task 1", description: "Desc 1", status: "todo", dueDate: Date())
+        let task = TaskModel(
+            id: "1",
+            title: "Task 1",
+            description: "Desc 1",
+            status: "todo",
+            dueDate: Date(),
+            creationDate: Date()
+        )
         mockRepository.fetchTasksResult = .success([task])
         await viewModel.fetchAllTasks()
         mockRepository.deleteTaskResult = .failure(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Delete Error"]))
@@ -101,11 +122,25 @@ final class TaskListViewModelTests: XCTestCase {
     
     func testUpdateStatusSuccess() async {
         // Given
-        let task = TaskModel(id: "1", title: "Task 1", description: "Desc 1", status: "todo", dueDate: Date())
+        let task = TaskModel(
+            id: "1",
+            title: "Task 1",
+            description: "Desc 1",
+            status: "todo",
+            dueDate: Date(),
+            creationDate: Date()
+        )
         mockRepository.fetchTasksResult = .success([task])
         await viewModel.fetchAllTasks()
         
-        let updatedTask = TaskModel(id: "1", title: "Task 1", description: "Desc 1", status: "done", dueDate: Date())
+        let updatedTask = TaskModel(
+            id: "1",
+            title: "Task 1",
+            description: "Desc 1",
+            status: "done",
+            dueDate: Date(),
+            creationDate: Date()
+        )
         mockRepository.updateTaskResult = .success(())
         mockRepository.fetchTasksResult = .success([updatedTask])
         
@@ -121,7 +156,14 @@ final class TaskListViewModelTests: XCTestCase {
     
     func testUpdateStatusFailure() async {
         // Given
-        let task = TaskModel(id: "1", title: "Task 1", description: "Desc 1", status: "todo", dueDate: Date())
+        let task = TaskModel(
+            id: "1",
+            title: "Task 1",
+            description: "Desc 1",
+            status: "todo",
+            dueDate: Date(),
+            creationDate: Date()
+        )
         mockRepository.fetchTasksResult = .success([task])
         await viewModel.fetchAllTasks()
         mockRepository.updateTaskResult = .failure(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Update Error"]))
@@ -138,8 +180,22 @@ final class TaskListViewModelTests: XCTestCase {
     
     func testFilteredTasks() async {
         // Given
-        let task1 = TaskModel(id: "1", title: "Task 1", description: "Desc 1", status: "todo", dueDate: Date())
-        let task2 = TaskModel(id: "2", title: "Task 2", description: "Desc 2", status: "done", dueDate: Date())
+        let task1 = TaskModel(
+            id: "1",
+            title: "Task 1",
+            description: "Desc 1",
+            status: "todo",
+            dueDate: Date(),
+            creationDate: Date().addingTimeInterval(60*60)
+        )
+        let task2 = TaskModel(
+            id: "2",
+            title: "Task 2",
+            description: "Desc 2",
+            status: "done",
+            dueDate: Date(),
+            creationDate: Date()
+        )
         mockRepository.fetchTasksResult = .success([task1, task2])
         await viewModel.fetchAllTasks()
         
@@ -169,5 +225,72 @@ final class TaskListViewModelTests: XCTestCase {
         
         // Then
         XCTAssertEqual(viewModel.filteredTasks, [task1, task2])
+    }
+    
+    func testTaskSorting() async {
+        // Given
+        let task1 = TaskModel(
+            id: "1",
+            title: "Task 1",
+            description: "Desc 1",
+            status: "todo",
+            dueDate: Date().addingTimeInterval(60*60*24*3),
+            creationDate: Date().addingTimeInterval(60*60*24*4)
+        )
+        
+        let task2 = TaskModel(
+            id: "2",
+            title: "Task 2",
+            description: "Desc 2",
+            status: "todo",
+            dueDate: Date().addingTimeInterval(60*60*24*2),
+            creationDate: Date().addingTimeInterval(60*60*24*2)
+        )
+        
+        let task3 = TaskModel(
+            id: "3",
+            title: "Task 3",
+            description: "Desc 3",
+            status: "done",
+            dueDate: Date().addingTimeInterval(60*60*24),
+            creationDate: Date().addingTimeInterval(60*60*24*3)
+        )
+        
+        let task4 = TaskModel(
+            id: "4",
+            title: "Task 4",
+            description: "Desc 4",
+            status: "done",
+            dueDate: Date(),
+            creationDate: Date().addingTimeInterval(60*60*24)
+        )
+        
+        mockRepository.fetchTasksResult = .success([task1, task2, task3, task4])
+        await viewModel.fetchAllTasks()
+        
+        // Sort all tasks by title
+        viewModel.sortingBy = .title
+        
+        // Then
+        XCTAssertEqual(viewModel.filteredTasks, [task1, task2, task3, task4])
+        
+        // Sort all tasks by creationDate
+        viewModel.sortingBy = .creationDate
+        
+        // Then
+        XCTAssertEqual(viewModel.filteredTasks, [task1, task3, task2, task4])
+        
+        // Sort all tasks by due date
+        viewModel.sortingBy = .dueDate
+        
+        // Then
+        XCTAssertEqual(viewModel.filteredTasks, [task4, task3, task2, task1])
+        
+        // Sort all todo tasks by due date
+        viewModel.selectedStatus = .todo
+        viewModel.sortingBy = .dueDate
+        
+        // Then
+        XCTAssertEqual(viewModel.filteredTasks, [task2, task1])
     }
 }

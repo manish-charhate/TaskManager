@@ -33,7 +33,7 @@ final class TasksFirebaseRepository: TasksRepository {
     }
     
     func fetchTasks() async throws -> [TaskModel] {
-        let documents = try await Firestore.firestore().getDocuments(from: tasksRef)
+        let documents = try await tasksRef.order(by: "creationDate", descending: true).getDocuments().documents
         
         return documents.compactMap { snapshot in
             do {

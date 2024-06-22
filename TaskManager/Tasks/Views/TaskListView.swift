@@ -51,14 +51,12 @@ struct TaskListView: View {
                     .padding()
                     .background(Color(UIColor.systemBackground))
                     .cornerRadius(10)
-                    .shadow(radius: 2)
+                    .shadow(color: Color(UIColor.systemGray3), radius: 4)
                 }
                 .listStyle(PlainListStyle())
                 
                 Button {
-                    Task {
-                        await viewModel.createTask()
-                    }
+                    viewModel.showCreateForm.toggle()
                 } label: {
                     Image(systemName: "plus")
                         .font(.title.weight(.semibold))
@@ -66,14 +64,27 @@ struct TaskListView: View {
                         .background(Color.blue)
                         .foregroundColor(.white)
                         .clipShape(Circle())
-                        .shadow(radius: 4, x: 0, y: 4)
+                        .shadow(color: Color(UIColor.systemGray3), radius: 4, x: 0, y: 4)
                 }
                 .padding()
             }
             .navigationTitle("Task Manager")
             .searchable(text: $viewModel.searchText)
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .topBarLeading) {
+                    Menu {
+                        Picker("Sort By", selection: $viewModel.sortingBy) {
+                            ForEach(SortingCriteria.allCases, id: \.self) { type in
+                                Text("Sort by: \(type.rawValue.capitalized)").tag(type)
+                            }
+                        }
+                    } label: {
+                        Image(systemName: "arrow.up.arrow.down.circle")
+                            .imageScale(.large)
+                    }
+                }
+                
+                ToolbarItem(placement: .topBarTrailing) {
                     Menu {
                         Picker("Status", selection: $viewModel.selectedStatus) {
                             ForEach(TaskStatus.allCases, id: \.self) { status in
@@ -98,6 +109,13 @@ struct TaskListView: View {
                 Task {
                     await viewModel.fetchAllTasks()
                 }
+            }
+            .fullScreenCover(isPresented: $viewModel.showCreateForm) {
+                Task {
+                    await viewModel.fetchAllTasks()
+                }
+            } content: {
+                CreateTaskFormView(viewModel: CreateTaskViewModel(), showForm: $viewModel.showCreateForm)
             }
         }
     }
