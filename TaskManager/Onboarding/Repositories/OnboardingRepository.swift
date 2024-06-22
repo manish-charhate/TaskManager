@@ -12,10 +12,10 @@ protocol OnboardingRepository {
     func signUp(
         with email: String,
         password: String
-    ) async throws -> OnboardingResponse
+    ) async throws -> Profile
     
     func signIn(
         with email: String,
         password: String
-    ) async throws -> OnboardingResponse
+    ) async throws -> Profile
 }

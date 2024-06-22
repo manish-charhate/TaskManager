@@ -16,7 +16,7 @@ struct OnboardingView: View {
             ZStack {
                 VStack {
                     VStack(spacing: 20) {
-                        Image(systemName: "checkmark.circle.fill")
+                        Image("taskManagerLogo")
                             .resizable()
                             .frame(width: 100, height: 100)
                             .foregroundColor(.teal)

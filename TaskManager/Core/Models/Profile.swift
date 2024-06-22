@@ -1,5 +1,5 @@
 //
-//  OnboardingResponse.swift
+//  Profile.swift
 //  TaskManager
 //
 //  Created by Manish Charhate on 21/06/24.
@@ -8,14 +8,14 @@
 import Foundation
 import FirebaseAuth
 
-struct OnboardingResponse {
+struct Profile {
     let uid: String
     let email: String?
     let photoURL: URL?
     let displayName: String?
 }
 
-extension OnboardingResponse {
+extension Profile {
     
     init(user: User) {
         self.uid = user.uid

@@ -13,60 +13,89 @@ struct TaskListView: View {
     @State var navigationPath = NavigationPath()
     
     var body: some View {
-        
         NavigationStack(path: $navigationPath) {
-            ZStack(alignment: .bottomTrailing) {
-                List(viewModel.filteredTasks) { task in
-                    NavigationLink(value: task) {
-                        TaskCardView(task: task)
-                            .swipeActions {
-                                Button(role: .destructive) {
-                                    Task {
-                                        await viewModel.deleteTask(task)
-                                    }
-                                } label: {
-                                    Label {
-                                        Text("Delete")
-                                    } icon: {
-                                        Image(systemName: "trash")
-                                    }
-                                }
-                                
-                                Button {
-                                    Task {
-                                        await viewModel.updateStatus(to: .done, for: task)
-                                    }
-                                } label: {
-                                    Label {
-                                        Text("Done")
-                                    } icon: {
-                                        Image(systemName: "checkmark.square.fill")
-                                    }
-                                }
-                                .tint(.green)
-                            }
-                    }
-                    .listRowSeparator(.hidden)
-                    .listRowBackground(Color.clear)
-                    .padding()
-                    .background(Color(UIColor.systemBackground))
-                    .cornerRadius(10)
-                    .shadow(color: Color(UIColor.systemGray3), radius: 4)
-                }
-                .listStyle(PlainListStyle())
-                
-                Button {
-                    viewModel.showCreateForm.toggle()
-                } label: {
-                    Image(systemName: "plus")
-                        .font(.title.weight(.semibold))
+            Group {
+                if viewModel.filteredTasks.isEmpty {
+                    VStack {
+                        Spacer()
+                        Image(systemName: "clipboard")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 100)
+                            .foregroundColor(.gray)
+                        
+                        Text("No tasks found")
+                            .font(.headline)
+                            .foregroundStyle(.gray)
+                        
+                        Button {
+                            viewModel.showCreateForm.toggle()
+                        } label: {
+                            Text("Create Task")
+                                .padding()
+                                .background(.blue)
+                                .foregroundColor(.white)
+                                .cornerRadius(10.0)
+                        }
                         .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .clipShape(Circle())
-                        .shadow(color: Color(UIColor.systemGray3), radius: 4, x: 0, y: 4)
+                        
+                        Spacer()
+                    }
+                } else {
+                    ZStack(alignment: .bottomTrailing) {
+                        List(viewModel.filteredTasks) { task in
+                            NavigationLink(value: task) {
+                                TaskCardView(task: task)
+                                    .swipeActions {
+                                        Button(role: .destructive) {
+                                            Task {
+                                                await viewModel.deleteTask(task)
+                                            }
+                                        } label: {
+                                            Label {
+                                                Text("Delete")
+                                            } icon: {
+                                                Image(systemName: "trash")
+                                            }
+                                        }
+                                        
+                                        Button {
+                                            Task {
+                                                await viewModel.updateStatus(to: .done, for: task)
+                                            }
+                                        } label: {
+                                            Label {
+                                                Text("Done")
+                                            } icon: {
+                                                Image(systemName: "checkmark.square.fill")
+                                            }
+                                        }
+                                        .tint(.green)
+                                    }
+                            }
+                            .listRowSeparator(.hidden)
+                            .listRowBackground(Color.clear)
+                            .padding()
+                            .background(Color(UIColor.systemBackground))
+                            .cornerRadius(10)
+                            .shadow(color: Color(UIColor.systemGray3), radius: 4)
+                        }
+                        .listStyle(PlainListStyle())
+                        
+                        Button {
+                            viewModel.showCreateForm.toggle()
+                        } label: {
+                            Image(systemName: "plus")
+                                .font(.title.weight(.semibold))
+                                .padding()
+                                .background(Color.blue)
+                                .foregroundColor(.white)
+                                .clipShape(Circle())
+                                .shadow(color: Color(UIColor.systemGray3), radius: 4, x: 0, y: 4)
+                        }
+                        .padding()
+                    }
                 }
-                .padding()
             }
             .navigationTitle("Task Manager")
             .searchable(text: $viewModel.searchText)

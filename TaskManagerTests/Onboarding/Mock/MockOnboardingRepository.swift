@@ -16,14 +16,14 @@ final class MockOnboardingRepository: OnboardingRepository {
     var signUpError = "Mock SignUp Error"
     var signInError = "Mock SignUp Error"
     
-    func signUp(with email: String, password: String) async throws -> OnboardingResponse {
+    func signUp(with email: String, password: String) async throws -> Profile {
         signUpCalled = true
         
         if shouldReturnError {
             throw NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: signUpError])
         }
         
-        return OnboardingResponse(
+        return Profile(
             uid: UUID().uuidString,
             email: email,
             photoURL: URL(string: "http://photo-url.com"),
@@ -31,14 +31,14 @@ final class MockOnboardingRepository: OnboardingRepository {
         )
     }
     
-    func signIn(with email: String, password: String) async throws -> OnboardingResponse {
+    func signIn(with email: String, password: String) async throws -> Profile {
         signInCalled = true
         
         if shouldReturnError {
             throw NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: signInError])
         }
         
-        return OnboardingResponse(
+        return Profile(
             uid: UUID().uuidString,
             email: email,
             photoURL: URL(string: "http://photo-url.com"),

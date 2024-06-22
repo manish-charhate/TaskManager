@@ -25,7 +25,7 @@ struct StatusView: View {
     private var statusColor: Color {
         switch status {
             case .todo:
-                return .red
+                return .blue.opacity(0.7)
                 
             case .inProgress:
                 return .orange
