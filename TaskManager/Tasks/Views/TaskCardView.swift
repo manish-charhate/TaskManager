@@ -16,10 +16,10 @@ struct TaskCardView: View {
         HStack {
             VStack(alignment: .leading, spacing: 10) {
                 
-                Text(task.title)
+                Text(task.title ?? "")
                     .font(.headline)
                 
-                Text(task.description)
+                Text(task.description ?? "")
                     .font(.body)
                     .lineLimit(3)
                     .multilineTextAlignment(.leading)
@@ -29,29 +29,26 @@ struct TaskCardView: View {
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                     
-                    Text(task.dueDate, style: .date)
+                    Text(task.dueDate ?? Date(), style: .date)
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                 }
                 
-                StatusView(status: task.status)
+                StatusView(status: task.statusType)
             }
             
             Spacer()
         }
-        .padding()
-        .background(Color(UIColor.systemBackground))
-        .cornerRadius(10)
-        .shadow(radius: 2)
     }
 }
 
 #Preview {
     TaskCardView(
         task: TaskModel(
+            id: UUID().uuidString,
             title: "Task 1",
             description: "Description 1",
-            status: .todo,
+            status: TaskStatus.todo.rawValue,
             dueDate: Date()
         )
     )

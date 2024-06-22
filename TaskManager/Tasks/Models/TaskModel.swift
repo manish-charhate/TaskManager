@@ -7,12 +7,17 @@
 
 import Foundation
 
-struct TaskModel: Identifiable {
-    let id = UUID()
-    let title: String
-    let description: String
-    let status: TaskStatus
-    let dueDate: Date
+struct TaskModel: Identifiable, Codable, Hashable {
+    let id: String
+    let title: String?
+    let description: String?
+    let status: String?
+    let dueDate: Date?
+    
+    var statusType: TaskStatus {
+        guard let status else { return .all }
+        return TaskStatus(rawValue: status) ?? .all
+    }
 }
 
 enum TaskStatus: String, CaseIterable {

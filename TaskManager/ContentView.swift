@@ -14,9 +14,11 @@ struct ContentView: View {
     var body: some View {
         Group {
             if showOnboarding {
-                OnboardingView(
-                    viewModel: OnboardingViewModel()
-                )
+                NavigationStack {
+                    OnboardingView(
+                        viewModel: OnboardingViewModel()
+                    )
+                }
             } else {
                 TaskListView(viewModel: TaskListViewModel())
             }

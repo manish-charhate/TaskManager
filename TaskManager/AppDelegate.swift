@@ -17,6 +17,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
     ) -> Bool {
         // Configure Firebase app
         FirebaseApp.configure()
+        
         return true
     }
 }
