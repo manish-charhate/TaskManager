@@ -18,10 +18,4 @@ final class ProfileFirebaseRepository: ProfileRepository {
     func logout() throws {
         try Auth.auth().signOut()
     }
-    
-    func deleteAccount() async throws {
-        let user = Auth.auth().currentUser
-        
-        try await user?.delete()
-    }
 }

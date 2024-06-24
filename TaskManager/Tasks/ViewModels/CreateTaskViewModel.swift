@@ -21,11 +21,16 @@ final class CreateTaskViewModel: ObservableObject {
     @Published var errorMessage = ""
     
     private let repository: TasksRepository
+    private let notificationManager: LocalNotificationManager
     
     // MARK: Init
     
-    init(repository: TasksRepository = TasksFirebaseRepository()) {
+    init(
+        repository: TasksRepository = TasksFirebaseRepository(),
+        notificationManager: LocalNotificationManager
+    ) {
         self.repository = repository
+        self.notificationManager = notificationManager
     }
     
     // MARK: Public methods
@@ -54,11 +59,33 @@ final class CreateTaskViewModel: ObservableObject {
         
         do {
             try await repository.createTask(task)
+            
+            // Add local notification for the task
+            addLocalNotification(for: task)
+            
             return true
         } catch {
             showError = true
             errorMessage = error.localizedDescription
             return false
+        }
+    }
+    
+    // MARK: Private methods
+    
+    private func addLocalNotification(for task: TaskModel) {
+        Task {
+            do {
+                // Schedule local reminder on due date
+                try await notificationManager.scheduleLocalNotificationWith(
+                    id: task.id,
+                    title: task.title ?? "",
+                    on: task.dueDate ?? Date()
+                )
+                print("hello")
+            } catch {
+                print("Failed to schedule local notification: \(error.localizedDescription)")
+            }
         }
     }
 }

@@ -12,6 +12,4 @@ protocol ProfileRepository {
     func fetchProfile() -> Profile?
     
     func logout() throws
-    
-    func deleteAccount() async throws
 }

@@ -186,7 +186,8 @@ struct TaskDetailsView: View {
                     status: TaskStatus.done.rawValue,
                     dueDate: Date(),
                     creationDate: Date()
-                )
+                ),
+                notificationManager: LocalNotificationManager()
             ),
             navigationPath: .constant(NavigationPath())
         )

@@ -16,30 +16,39 @@ struct ProfileTabView: View {
     
     var body: some View {
         ZStack {
-            VStack(spacing: 32.0) {
+            VStack(spacing: 16.0) {
                 
+                // Profile Icon
                 Image(systemName: "person.circle.fill")
                     .resizable()
                     .foregroundColor(.gray)
                     .frame(width: 120, height: 120)
                 
+                Divider()
+                    .frame(width: 200)
+                
+                // Email Field
                 VStack(spacing: 16.0) {
-                    PersonInfoRow(title: "Email", value: viewModel.profile.email ?? "")
+                    PersonInfoRow(title: "Email:", value: viewModel.profile.email ?? "")
                 }
                 .padding()
                 
+                Divider()
+                    .frame(width: 200)
+                
+                // Logout Button
                 Button(action: {
                     viewModel.handleLogoutButtonTap()
                 }) {
                     Text("Logout")
                         .foregroundColor(.white)
                         .font(.subheadline)
-                        .padding(EdgeInsets(top: 12.0, leading: 8.0, bottom: 12.0, trailing: 8.0))
+                        .padding(EdgeInsets(top: 8.0, leading: 8.0, bottom: 8.0, trailing: 8.0))
                         .background(Color.blue)
                         .cornerRadius(8)
                 }
             }
-            .padding(EdgeInsets(top: 64.0, leading: 0.0, bottom: 0.0, trailing: 0.0))
+            .padding()
             .alert(isPresented: $viewModel.showAlert) {
                 switch viewModel.alertType {
                     case .logout:
@@ -48,6 +57,7 @@ struct ProfileTabView: View {
                             message: Text("Are you sure you want to logout?"),
                             primaryButton: .default(Text("Logout")) {
                                 viewModel.logout()
+                                // Switch back to tasks tab after logging out
                                 selectedTab = .tasks
                             },
                             secondaryButton: .cancel()

@@ -8,6 +8,7 @@
 import UIKit
 import Foundation
 import FirebaseCore
+import FirebaseAuth
 
 final class AppDelegate: NSObject, UIApplicationDelegate {
     

@@ -17,8 +17,8 @@ final class OnboardingViewModel: ObservableObject {
     
     @Published var email = ""
     @Published var password = ""
-    @Published private(set) var errorMessage = ""
     @Published var showError = false
+    @Published private(set) var errorMessage = ""
     @Published private(set) var isLoading = false
     
     private var cancellables = Set<AnyCancellable>()

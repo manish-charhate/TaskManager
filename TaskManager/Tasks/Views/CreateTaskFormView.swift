@@ -78,5 +78,10 @@ struct CreateTaskFormView: View {
 }
 
 #Preview {
-    CreateTaskFormView(viewModel: CreateTaskViewModel(), showForm: .constant(true))
+    CreateTaskFormView(
+        viewModel: CreateTaskViewModel(
+            notificationManager: LocalNotificationManager()
+        ),
+        showForm: .constant(true)
+    )
 }

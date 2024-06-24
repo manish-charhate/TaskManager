@@ -8,15 +8,14 @@
 import SwiftUI
 
 struct PersonInfoRow: View {
-    var title: String
-    var value: String
+    
+    let title: String
+    let value: String
     
     var body: some View {
         HStack {
             Text(title)
                 .foregroundColor(.gray)
-            
-            Spacer()
             
             Text(value)
                 .foregroundColor(.gray)

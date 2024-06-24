@@ -26,9 +26,13 @@ final class ProfileViewModel: ObservableObject {
     
     private let repository: ProfileRepository
     
+    // MARK: Init
+    
     init(repository: ProfileRepository = ProfileFirebaseRepository()) {
         self.repository = repository
     }
+    
+    // MARK: Public methods
     
     func fetchProfile() {
         if let profile = repository.fetchProfile() {

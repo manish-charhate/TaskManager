@@ -40,6 +40,9 @@
 		CCDC8DE72C26D98F00D4F67A /* TaskListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDC8DE62C26D98F00D4F67A /* TaskListViewModelTests.swift */; };
 		CCDC8DE92C26E0CB00D4F67A /* CreateTaskFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDC8DE82C26E0CB00D4F67A /* CreateTaskFormView.swift */; };
 		CCDC8DEB2C26E2B600D4F67A /* CreateTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDC8DEA2C26E2B600D4F67A /* CreateTaskViewModel.swift */; };
+		CCEBCF432C287F82004CFEFE /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEBCF422C287F82004CFEFE /* FloatingActionButton.swift */; };
+		CCEBCF452C288035004CFEFE /* TasksEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEBCF442C288035004CFEFE /* TasksEmptyStateView.swift */; };
+		CCEBCF482C2883F7004CFEFE /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEBCF472C2883F7004CFEFE /* LocalNotificationManager.swift */; };
 		CCFC40BC2C26F63700504801 /* CreateTaskViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFC40BB2C26F63700504801 /* CreateTaskViewModelTests.swift */; };
 		CCFC40C12C27122900504801 /* ProfileTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFC40C02C27122800504801 /* ProfileTabView.swift */; };
 		CCFC40C42C2712F000504801 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFC40C32C2712F000504801 /* ProfileViewModel.swift */; };
@@ -92,6 +95,9 @@
 		CCDC8DE62C26D98F00D4F67A /* TaskListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewModelTests.swift; sourceTree = "<group>"; };
 		CCDC8DE82C26E0CB00D4F67A /* CreateTaskFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskFormView.swift; sourceTree = "<group>"; };
 		CCDC8DEA2C26E2B600D4F67A /* CreateTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewModel.swift; sourceTree = "<group>"; };
+		CCEBCF422C287F82004CFEFE /* FloatingActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButton.swift; sourceTree = "<group>"; };
+		CCEBCF442C288035004CFEFE /* TasksEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksEmptyStateView.swift; sourceTree = "<group>"; };
+		CCEBCF472C2883F7004CFEFE /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		CCFC40BB2C26F63700504801 /* CreateTaskViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewModelTests.swift; sourceTree = "<group>"; };
 		CCFC40BD2C270F5E00504801 /* TaskManager.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TaskManager.xctestplan; sourceTree = "<group>"; };
 		CCFC40C02C27122800504801 /* ProfileTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabView.swift; sourceTree = "<group>"; };
@@ -181,16 +187,8 @@
 				CC04A6022C25B33A00DCAE2A /* Repositories */,
 				CC04A6012C25B33200DCAE2A /* Views */,
 				CC04A6002C25B32B00DCAE2A /* ViewModels */,
-				CC04A5FF2C25B32700DCAE2A /* Models */,
 			);
 			path = Onboarding;
-			sourceTree = "<group>";
-		};
-		CC04A5FF2C25B32700DCAE2A /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		CC04A6002C25B32B00DCAE2A /* ViewModels */ = {
@@ -237,6 +235,8 @@
 				CC04A6202C25BD9C00DCAE2A /* TaskDetailsView.swift */,
 				CC04A6222C25C53E00DCAE2A /* StatusView.swift */,
 				CCDC8DE82C26E0CB00D4F67A /* CreateTaskFormView.swift */,
+				CCEBCF422C287F82004CFEFE /* FloatingActionButton.swift */,
+				CCEBCF442C288035004CFEFE /* TasksEmptyStateView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -304,6 +304,7 @@
 		CC04A62F2C25F89400DCAE2A /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				CCEBCF462C2883E8004CFEFE /* Managers */,
 				CCFC40CC2C2720F300504801 /* Models */,
 				CC04A6302C25F89E00DCAE2A /* Extensions */,
 			);
@@ -353,6 +354,14 @@
 				CCDC8DE42C26D50A00D4F67A /* MockTasksRepository.swift */,
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		CCEBCF462C2883E8004CFEFE /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				CCEBCF472C2883F7004CFEFE /* LocalNotificationManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		CCFC40BE2C27121800504801 /* Profile */ = {
@@ -511,6 +520,7 @@
 				CCFC40C62C2715C300504801 /* PersonInfoRow.swift in Sources */,
 				CC04A5FB2C25B17900DCAE2A /* AppDelegate.swift in Sources */,
 				CC04A6232C25C53E00DCAE2A /* StatusView.swift in Sources */,
+				CCEBCF452C288035004CFEFE /* TasksEmptyStateView.swift in Sources */,
 				CC04A6062C25B37100DCAE2A /* OnboardingRepository.swift in Sources */,
 				CCDC8DEB2C26E2B600D4F67A /* CreateTaskViewModel.swift in Sources */,
 				CC04A62C2C25ED8D00DCAE2A /* TasksRepository.swift in Sources */,
@@ -518,6 +528,7 @@
 				CCDC8DDC2C269C8200D4F67A /* TaskDetailsFirebaseRepository.swift in Sources */,
 				CCFC40CB2C271EF300504801 /* ProfileFirebaseRepository.swift in Sources */,
 				CC04A6262C25C79400DCAE2A /* TaskListViewModel.swift in Sources */,
+				CCEBCF482C2883F7004CFEFE /* LocalNotificationManager.swift in Sources */,
 				CC04A61C2C25BBD800DCAE2A /* TaskModel.swift in Sources */,
 				CC04A6342C26257200DCAE2A /* TaskDetailsViewModel.swift in Sources */,
 				CC04A6322C25F8AE00DCAE2A /* Firestore+Extension.swift in Sources */,
@@ -530,6 +541,7 @@
 				CC04A60C2C25B3ED00DCAE2A /* OnboardingView.swift in Sources */,
 				CC04A60A2C25B3CD00DCAE2A /* OnboardingViewModel.swift in Sources */,
 				CCDC8DE92C26E0CB00D4F67A /* CreateTaskFormView.swift in Sources */,
+				CCEBCF432C287F82004CFEFE /* FloatingActionButton.swift in Sources */,
 				CCDC8DD92C269BD900D4F67A /* TaskDetailsRepository.swift in Sources */,
 				CC04A5CE2C25B04600DCAE2A /* TaskManagerApp.swift in Sources */,
 				CC04A62E2C25EE2F00DCAE2A /* TasksFirebaseRepository.swift in Sources */,
